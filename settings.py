@@ -1,0 +1,29 @@
+#Main_Window
+APPEARANCE_MODE="dark"
+INIT_GEOMETRY="2000x1000"
+SIDE_FRAME_COLOUR="#2d2d2d"
+MAIN_FRAME_COLOUR="#"
+MIN_WIDTH=1800
+MIN_HEIGHT=1270
+BUTTON_COLOUR="#4A6984"
+ARROWSIZE=25
+
+
+
+#Book_Form
+BOOK_FORM_GEO="1000x900"
+LEFT_FRAME_COLOUR="#ded49f"
+RIGHT_FRAME_COLOUR="#e6da26"
+
+#Label_Frames
+L_FRAME_COLOUR="#CFCFCF"
+TEXT_COLOUR="black"
+
+IMAGE_FORMATS=[
+    ("image",".jpeg"),
+    ("image",".png"),
+    ("image",".jpg"),
+]
+
+FONT_FAMILY='calibri'
+FONT_SIZE=18
