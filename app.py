@@ -297,7 +297,7 @@ class Edit_Book_form(ctk.CTkToplevel):
         #Book_Owner/Entry
         self.label5=ctk.CTkLabel(self.right_lFrame,text="Book Owner")
         self.label5.pack(padx=10,pady=5,anchor="sw")
-        self.input_owner=ctk.CTkComboBox(self.right_lFrame ,width=300,values=["maria","giorgos","nikos"])
+        self.input_owner=ctk.CTkComboBox(self.right_lFrame ,width=300,values=["Thania","Stellina","Vaia","Fotini","Kalliopi"])
         self.input_owner.pack(padx=10,pady=2,anchor="nw")
 
         #StringVars
@@ -360,7 +360,11 @@ class Tree(ttk.Treeview):
     def __init__(self,parent,book_columns,data):
         super().__init__(master=parent,columns=book_columns)
         s=ttk.Style()
-        s.configure("Treeview",rowheight=150) #ύψος γραμμων treeview
+        s.configure("Treeview",
+                    rowheight=150,#ύψος γραμμων treeview
+                    background='#d6bfb1', 
+                    foreground='#000000',
+                    font=('Georgia',10)) 
 
         self.heading("#1", text="Title")
         self.heading("#2", text="Author")
@@ -477,13 +481,45 @@ class App(ctk.CTk):
         App.details_pic.place(relx=0.51,rely=0.41,relwidth=0.28,relheight=0.57)
     #Buttons
         #Add_Book Button
-        self.book_button=ctk.CTkButton(self.menu_frame,text="Add Book",corner_radius=10,fg_color=BUTTON_COLOUR, command=self.open_book_form)
+        self.book_button=ctk.CTkButton(self.menu_frame,
+                                       text="Add Book",
+                                       font=("Times",20,"bold"),
+                                       border_spacing=5,
+                                       corner_radius=35,
+                                       border_width=0,
+                                       hover_color=HOVER_COLOUR,
+                                       fg_color=BUTTON_COLOUR,
+                                       bg_color=SIDE_FRAME_COLOUR,
+                                       command=self.open_book_form)
+        
         self.book_button.pack(padx=100, pady=20,fill="x",anchor="nw")
+        
         #Edit_Book Button
-        self.book_button=ctk.CTkButton(self.menu_frame,text="Edit Book",corner_radius=10,fg_color=BUTTON_COLOUR, command= lambda: edit_book(self))
+        self.book_button=ctk.CTkButton(self.menu_frame,
+                                       text="Edit Book",
+                                       font=("Times",20,"bold"),
+                                       border_spacing=5,
+                                       corner_radius=35,
+                                       border_width=0, 
+                                       hover_color=HOVER_COLOUR,
+                                       fg_color=BUTTON_COLOUR,
+                                       bg_color=SIDE_FRAME_COLOUR,
+                                       command= lambda: edit_book(self))
+        
         self.book_button.pack(padx=100, pady=20,fill="x",anchor="nw")
+
         #Delete_Book Button
-        self.book_button=ctk.CTkButton(self.menu_frame,text="Delete Book",corner_radius=10,fg_color=BUTTON_COLOUR, command=lambda: delete_book())
+        self.book_button=ctk.CTkButton(self.menu_frame,
+                                       text="Delete Book",
+                                       font=('Times',20,"bold"),
+                                       border_spacing=5,
+                                       corner_radius=80,
+                                       border_width=0,
+                                       hover_color=HOVER_COLOUR,
+                                       fg_color=BUTTON_COLOUR,
+                                       bg_color=SIDE_FRAME_COLOUR,
+                                       command=lambda: delete_book())
+        
         self.book_button.pack(padx=100, pady=20,fill="x",anchor="nw")
 
  #MAIN
@@ -504,5 +540,5 @@ class App(ctk.CTk):
             self.obf=Book_form(self)
     
         
-app=App("OUR BOOKS")
+app=App("BOOK NEST")
 app.mainloop()
